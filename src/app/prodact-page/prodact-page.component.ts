@@ -16,22 +16,32 @@ export class ProdactPageComponent {
   imges!:string;
   price!:number;
   detales!:string;
-  constructor(private http:NewProdectService,private addProdecs:CardService,private router:Router) 
+  quantity!: number;
+  constructor(private http:NewProdectService,private addProdecs:CardService,private router:Router)
   {
     this.http.get().subscribe(prodectpost=>
       {
-        this.prodectpost=prodectpost;
+        this.prodectpost = prodectpost;
         this.prodectpost.forEach((a:any)=>
         {
           Object.assign(a,{total:a.price,quantity:1})
         })
       })
-  } 
-  
-  addprodect(item:any)
-  {
-    alert("prodect items added to shop card")
-    console.log(item);
+  }
+
+  // setOrderQuantity
+
+  setOrderQuantity(e: any) {
+    debugger;
+    // this.quantity = quantity;
+  }
+
+
+
+  addprodect(item:any) {
+    // alert("prodect items added to shop card")
+    // console.log(item);
+    item.quantity = this.quantity;
     this.addProdecs.addtocard(item);
     // this.router.navigate(['shoping-card'],{queryParams:{Number:this.q}});
   }

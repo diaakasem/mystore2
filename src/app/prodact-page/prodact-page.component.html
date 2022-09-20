@@ -8,17 +8,22 @@
         </div>
         <p class="prodect-Name">{{s.prodectName}}</p>
         <div class="prodect-Price">{{s.price}}</div>
+
         <div class="prodects-counter">
-          <select name="prodect number">
-          <option default value=1>1</option>
-          <option value=2>2</option>
-          <option value=3>3</option>
-          <option value=4>4</option>
-          <option value=5>5</option>
-          <option value=6>6</option>
-          <option value=7>7</option>
-          <option value=8>8</option>
-      </select>
+        <select class='form-control'
+          (change)="setOrderQuantity($event)"
+          [value]='s.quantity'>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+            <option value=6>6</option>
+            <option value=7>7</option>
+            <option value=8>8</option>
+        </select>
+          <!-- <select name="prodect number" [(ngModel)]="s.quantity" > -->
+            <!-- <option default value=1>1</option> -->
+          <!-- </select> -->
         </div>
         <div class="botton-contaner">
           <button (click)="addprodect(s)">

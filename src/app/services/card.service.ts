@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CardService {
 
   public prodectlist:any=[];
-  public cardslist=new BehaviorSubject<any>([]);
+  public cardslist = new BehaviorSubject<any>([]);
   constructor() { }
   getprodecs()
   {
@@ -26,7 +26,7 @@ export class CardService {
   }
   gettotaleprice():number
   {
-    let totle=0
+    let totle = 0
     this.prodectlist.map((a:any)=>{
       totle+=a.total
     })
